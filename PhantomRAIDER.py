@@ -32,9 +32,9 @@ parser.add_argument('-icon','--icon',help='Visible Icon',action='store_true')
 args = parser.parse_args()
 
 
-# FIX 1: Changed 'and' to 'or' — the original condition could never be True
-if float(platform.python_version()[:3]) < 3.6 or float(platform.python_version()[:3]) > 3.8:
-    print(stdOutput("error")+"\033[1mPython version should be between 3.6 to 3.8")
+# Allow Python 3.6 through 3.13
+if float(platform.python_version()[:3]) < 3.6 or float(platform.python_version()[:3]) > 3.13:
+    print(stdOutput("error")+"\033[1mPython version should be between 3.6 to 3.13")
     sys.exit()
 
 if args.build:
