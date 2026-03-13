@@ -21,10 +21,16 @@ PhantomRAIDER is a powerful tool designed to give control of an Android system r
 
 ## Prerequisites
 PhantomRAIDER requires Python3 and Java (or Android Studio) for building the client.
+For Linux users (Kali/Ubuntu), you must have the Java Development Kit installed to sign APKs.
 
 ## Installation
-```
-git clone https://github.com/zannyphantom-13/PhantomRaider.git
+```bash
+# On Kali/Ubuntu, install the JDK first:
+sudo apt update
+sudo apt install default-jdk
+
+# Then clone and install Python requirements:
+git clone https://github.com/zannyphantom-13/PhantomRAIDER.git
 cd PhantomRAIDER
 pip install -r requirements.txt
 ```
