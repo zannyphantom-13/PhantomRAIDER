@@ -391,7 +391,7 @@ def build(ip,port,output,ngrok=False,ng=None,icon=None):
     print(stdOutput("info")+"\033[0mGenerating APK")
     outFileName = output if output else "karma.apk"
     que = queue.Queue()
-    t = threading.Thread(target=executeCMD,args=[java_bin+" -jar jar_utils/apktool.jar b Compiled_apk --use-aapt1 -o "+outFileName,que],)
+    t = threading.Thread(target=executeCMD,args=[java_bin+" -jar jar_utils/apktool.jar b Compiled_apk -o "+outFileName,que],)
     t.start()
     while t.is_alive(): animate("Building APK ")
     t.join()
